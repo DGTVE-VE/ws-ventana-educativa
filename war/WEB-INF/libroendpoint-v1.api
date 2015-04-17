@@ -1,0 +1,287 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://ws-ventana-educativa.appspot.com/_ah/api",
+  "name" : "libroendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://ws-ventana-educativa.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "appspot.com",
+  "ownerName" : "appspot.com",
+  "packagePath" : "wsventanaeducativa.dao.dto",
+  "methods" : {
+    "libroendpoint.getLibro" : {
+      "path" : "libro/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.getLibro",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "libroendpoint.updateLibro" : {
+      "path" : "libro",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.updateLibro",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "libroendpoint.listLibro" : {
+      "path" : "libro",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.listLibro",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "libroendpoint.removeLibro" : {
+      "path" : "libro/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.removeLibro",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "libroendpoint.insertLibro" : {
+      "path" : "libro",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.insertLibro",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Libro" : {
+        "id" : "Libro",
+        "type" : "object",
+        "properties" : {
+          "idLibro" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "autor" : {
+            "type" : "string"
+          },
+          "colaboradore" : {
+            "type" : "string"
+          },
+          "propietario" : {
+            "type" : "string"
+          },
+          "titulo" : {
+            "type" : "string"
+          },
+          "subtitulo" : {
+            "type" : "string"
+          },
+          "edicion" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "editorial" : {
+            "type" : "string"
+          },
+          "lugar" : {
+            "type" : "string"
+          },
+          "fechaPublicacion" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "anioPublicacion" : {
+            "type" : "string"
+          },
+          "pagina" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "serie" : {
+            "type" : "string"
+          },
+          "numeroSerie" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "volumen" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "descripcion" : {
+            "type" : "string"
+          },
+          "isbn10" : {
+            "type" : "string"
+          },
+          "isbn13" : {
+            "type" : "string"
+          },
+          "ean13" : {
+            "type" : "string"
+          },
+          "issn" : {
+            "type" : "string"
+          },
+          "idioma" : {
+            "type" : "string"
+          },
+          "tituloTraducido" : {
+            "type" : "string"
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "calificacion" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "tema" : {
+            "type" : "string"
+          },
+          "tag" : {
+            "type" : "string"
+          },
+          "thumbnail" : {
+            "type" : "string"
+          },
+          "idInstitucion" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "fechaCreacion" : {
+            "type" : "string"
+          },
+          "fechaModificacion" : {
+            "type" : "string"
+          },
+          "visible" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
+      "CollectionResponse_Libro" : {
+        "id" : "CollectionResponse_Libro",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Libro"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.getLibro" : {
+        "response" : {
+          "$ref" : "Libro"
+        }
+      },
+      "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.updateLibro" : {
+        "request" : {
+          "$ref" : "Libro"
+        },
+        "response" : {
+          "$ref" : "Libro"
+        }
+      },
+      "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.listLibro" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Libro"
+        }
+      },
+      "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.removeLibro" : {
+      },
+      "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.insertLibro" : {
+        "request" : {
+          "$ref" : "Libro"
+        },
+        "response" : {
+          "$ref" : "Libro"
+        }
+      }
+    }
+  }
+}
