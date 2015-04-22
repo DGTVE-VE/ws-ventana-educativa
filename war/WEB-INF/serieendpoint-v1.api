@@ -1,0 +1,226 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://ws-ventana-educativa.appspot.com/_ah/api",
+  "name" : "serieendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://ws-ventana-educativa.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "appspot.com",
+  "ownerName" : "appspot.com",
+  "packagePath" : "wsventanaeducativa.dao.dto",
+  "methods" : {
+    "serieendpoint.insertSerie" : {
+      "path" : "serie",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.SerieEndpoint.insertSerie",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "serieendpoint.updateSerie" : {
+      "path" : "serie",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.SerieEndpoint.updateSerie",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "serieendpoint.listSerie" : {
+      "path" : "serie",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.SerieEndpoint.listSerie",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "serieendpoint.getSerie" : {
+      "path" : "serie/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.SerieEndpoint.getSerie",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "serieendpoint.removeSerie" : {
+      "path" : "serie/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.SerieEndpoint.removeSerie",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Serie" : {
+        "id" : "Serie",
+        "type" : "object",
+        "properties" : {
+          "idSerie" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "idInstitucion" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "titulo" : {
+            "type" : "string"
+          },
+          "descripcion" : {
+            "type" : "string"
+          },
+          "thumbnail" : {
+            "type" : "string"
+          },
+          "tag" : {
+            "type" : "string"
+          },
+          "temporada" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "calificacion" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "visible" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "youtubeListUrl" : {
+            "type" : "string"
+          },
+          "fechaCreacion" : {
+            "type" : "string"
+          },
+          "fechaModificacion" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_Serie" : {
+        "id" : "CollectionResponse_Serie",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Serie"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.appspot.wsventanaeducativa.endpoints.SerieEndpoint.insertSerie" : {
+        "request" : {
+          "$ref" : "Serie"
+        },
+        "response" : {
+          "$ref" : "Serie"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.SerieEndpoint.updateSerie" : {
+        "request" : {
+          "$ref" : "Serie"
+        },
+        "response" : {
+          "$ref" : "Serie"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.SerieEndpoint.listSerie" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Serie"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.SerieEndpoint.getSerie" : {
+        "response" : {
+          "$ref" : "Serie"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.SerieEndpoint.removeSerie" : {
+      }
+    }
+  }
+}

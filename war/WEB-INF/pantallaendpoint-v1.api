@@ -1,0 +1,239 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://ws-ventana-educativa.appspot.com/_ah/api",
+  "name" : "pantallaendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://ws-ventana-educativa.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "appspot.com",
+  "ownerName" : "appspot.com",
+  "packagePath" : "wsventanaeducativa.dao.dto",
+  "methods" : {
+    "pantallaendpoint.removePantalla" : {
+      "path" : "pantalla/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.PantallaEndpoint.removePantalla",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "pantallaendpoint.insertPantalla" : {
+      "path" : "pantalla",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.PantallaEndpoint.insertPantalla",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "pantallaendpoint.listIPantalla" : {
+      "path" : "pantalla",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.PantallaEndpoint.listPantalla",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "pantallaendpoint.getPantalla" : {
+      "path" : "pantalla/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.PantallaEndpoint.getPantalla",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "pantallaendpoint.updatePantalla" : {
+      "path" : "pantalla",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.PantallaEndpoint.updatePantalla",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Pantalla" : {
+        "id" : "Pantalla",
+        "type" : "object",
+        "properties" : {
+          "idPantalla" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "idPantallaPadre" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "nombre" : {
+            "type" : "string"
+          },
+          "descripcion" : {
+            "type" : "string"
+          },
+          "alto" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "ancho" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "thumbnail" : {
+            "type" : "string"
+          },
+          "posicion" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "colspan" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "rowspan" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "fila" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "columna" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "tipoVentana" : {
+            "type" : "string"
+          },
+          "fechaCreacion" : {
+            "type" : "string"
+          },
+          "fechaModificacion" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_Pantalla" : {
+        "id" : "CollectionResponse_Pantalla",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Pantalla"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.appspot.wsventanaeducativa.endpoints.PantallaEndpoint.removePantalla" : {
+      },
+      "com.appspot.wsventanaeducativa.endpoints.PantallaEndpoint.insertPantalla" : {
+        "request" : {
+          "$ref" : "Pantalla"
+        },
+        "response" : {
+          "$ref" : "Pantalla"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.PantallaEndpoint.listPantalla" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Pantalla"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.PantallaEndpoint.getPantalla" : {
+        "response" : {
+          "$ref" : "Pantalla"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.PantallaEndpoint.updatePantalla" : {
+        "request" : {
+          "$ref" : "Pantalla"
+        },
+        "response" : {
+          "$ref" : "Pantalla"
+        }
+      }
+    }
+  }
+}

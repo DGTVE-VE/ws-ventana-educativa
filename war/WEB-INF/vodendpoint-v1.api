@@ -1,0 +1,318 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://ws-ventana-educativa.appspot.com/_ah/api",
+  "name" : "vodendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://ws-ventana-educativa.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "appspot.com",
+  "ownerName" : "appspot.com",
+  "packagePath" : "wsventanaeducativa.dao.dto",
+  "methods" : {
+    "vodendpoint.getVod" : {
+      "path" : "vod/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.VodEndpoint.getVod",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "vodendpoint.removeVod" : {
+      "path" : "vod/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.VodEndpoint.removeVod",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "vodendpoint.listVod" : {
+      "path" : "vod",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.VodEndpoint.listVod",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "vodendpoint.insertVod" : {
+      "path" : "vod",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.VodEndpoint.insertVod",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "vodendpoint.updateVod" : {
+      "path" : "vod",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.VodEndpoint.updateVod",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Vod" : {
+        "id" : "Vod",
+        "type" : "object",
+        "properties" : {
+          "idVod" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "idInstitucion" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "autor" : {
+            "type" : "string"
+          },
+          "productor" : {
+            "type" : "string"
+          },
+          "derechoAutor" : {
+            "type" : "string"
+          },
+          "serie" : {
+            "type" : "string"
+          },
+          "titulo" : {
+            "type" : "string"
+          },
+          "subserie" : {
+            "type" : "string"
+          },
+          "subtitulo" : {
+            "type" : "string"
+          },
+          "tituloTraducido" : {
+            "type" : "string"
+          },
+          "claveIdentificacion" : {
+            "type" : "string"
+          },
+          "numeroObra" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "numeroSerie" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "formato" : {
+            "type" : "string"
+          },
+          "nnnov" : {
+            "type" : "string"
+          },
+          "credito" : {
+            "type" : "string"
+          },
+          "lugarProduccion" : {
+            "type" : "string"
+          },
+          "tema" : {
+            "type" : "string"
+          },
+          "sinopsi" : {
+            "type" : "string"
+          },
+          "duracion" : {
+            "type" : "string"
+          },
+          "anioProduccion" : {
+            "type" : "string"
+          },
+          "idioma" : {
+            "type" : "string"
+          },
+          "versione" : {
+            "type" : "string"
+          },
+          "sistemaGrabacion" : {
+            "type" : "string"
+          },
+          "color" : {
+            "type" : "string"
+          },
+          "sonido" : {
+            "type" : "string"
+          },
+          "disponibilidad" : {
+            "type" : "string"
+          },
+          "observacione" : {
+            "type" : "string"
+          },
+          "disponibleHasta" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "episodio" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "temporada" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "calificacion" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "tag" : {
+            "type" : "string"
+          },
+          "idSerie" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "thumbnail" : {
+            "type" : "string"
+          },
+          "visible" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "youtubeListId" : {
+            "type" : "string"
+          },
+          "youtubeId" : {
+            "type" : "string"
+          },
+          "fechaCreacion" : {
+            "type" : "string"
+          },
+          "fechaModificacion" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_Vod" : {
+        "id" : "CollectionResponse_Vod",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Vod"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.appspot.wsventanaeducativa.endpoints.VodEndpoint.getVod" : {
+        "response" : {
+          "$ref" : "Vod"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.VodEndpoint.removeVod" : {
+      },
+      "com.appspot.wsventanaeducativa.endpoints.VodEndpoint.listVod" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Vod"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.VodEndpoint.insertVod" : {
+        "request" : {
+          "$ref" : "Vod"
+        },
+        "response" : {
+          "$ref" : "Vod"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.VodEndpoint.updateVod" : {
+        "request" : {
+          "$ref" : "Vod"
+        },
+        "response" : {
+          "$ref" : "Vod"
+        }
+      }
+    }
+  }
+}

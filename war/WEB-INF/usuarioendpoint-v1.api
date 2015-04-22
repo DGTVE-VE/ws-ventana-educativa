@@ -1,0 +1,238 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://ws-ventana-educativa.appspot.com/_ah/api",
+  "name" : "usuarioendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://ws-ventana-educativa.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "appspot.com",
+  "ownerName" : "appspot.com",
+  "packagePath" : "wsventanaeducativa.dao.dto",
+  "methods" : {
+    "usuarioendpoint.insertUsuario" : {
+      "path" : "usuario",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.UsuarioEndpoint.insertUsuario",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "usuarioendpoint.removeUsuario" : {
+      "path" : "usuario/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.UsuarioEndpoint.removeUsuario",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "usuarioendpoint.updateUsuario" : {
+      "path" : "usuario",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.UsuarioEndpoint.updateUsuario",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "usuarioendpoint.getUsuario" : {
+      "path" : "usuario/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.UsuarioEndpoint.getUsuario",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "usuarioendpoint.listUsuario" : {
+      "path" : "usuario",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.UsuarioEndpoint.listUsuario",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Usuario" : {
+        "id" : "Usuario",
+        "type" : "object",
+        "properties" : {
+          "idUsuario" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "nombre" : {
+            "type" : "string"
+          },
+          "sexo" : {
+            "type" : "string"
+          },
+          "nacimiento" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "nacionalidad" : {
+            "type" : "string"
+          },
+          "pai" : {
+            "type" : "string"
+          },
+          "region" : {
+            "type" : "string"
+          },
+          "ciudad" : {
+            "type" : "string"
+          },
+          "correo" : {
+            "type" : "string"
+          },
+          "facebook" : {
+            "type" : "string"
+          },
+          "google" : {
+            "type" : "string"
+          },
+          "live" : {
+            "type" : "string"
+          },
+          "twitter" : {
+            "type" : "string"
+          },
+          "avatar" : {
+            "type" : "string"
+          },
+          "background" : {
+            "type" : "string"
+          },
+          "fechaCreacion" : {
+            "type" : "string"
+          },
+          "fechaModificacion" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_Usuario" : {
+        "id" : "CollectionResponse_Usuario",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Usuario"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.appspot.wsventanaeducativa.endpoints.UsuarioEndpoint.insertUsuario" : {
+        "request" : {
+          "$ref" : "Usuario"
+        },
+        "response" : {
+          "$ref" : "Usuario"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.UsuarioEndpoint.removeUsuario" : {
+      },
+      "com.appspot.wsventanaeducativa.endpoints.UsuarioEndpoint.updateUsuario" : {
+        "request" : {
+          "$ref" : "Usuario"
+        },
+        "response" : {
+          "$ref" : "Usuario"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.UsuarioEndpoint.getUsuario" : {
+        "response" : {
+          "$ref" : "Usuario"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.UsuarioEndpoint.listUsuario" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Usuario"
+        }
+      }
+    }
+  }
+}
