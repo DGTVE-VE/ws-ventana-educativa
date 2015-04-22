@@ -2,7 +2,7 @@
   "extends" : "thirdParty.api",
   "abstract" : false,
   "root" : "https://ws-ventana-educativa.appspot.com/_ah/api",
-  "name" : "administradorendpoint",
+  "name" : "opinionlibroendpoint",
   "version" : "v1",
   "defaultVersion" : false,
   "adapter" : {
@@ -27,14 +27,14 @@
   "ownerName" : "appspot.com",
   "packagePath" : "wsventanaeducativa.dao.dto",
   "methods" : {
-    "administradorendpoint.updateAdministrador" : {
-      "path" : "administrador",
-      "httpMethod" : "PUT",
+    "opinionlibroendpoint.insertOpinionLibro" : {
+      "path" : "opinionlibro",
+      "httpMethod" : "POST",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.updateAdministrador",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.OpinionLibroEndpoint.insertOpinionLibro",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
@@ -43,14 +43,51 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "administradorendpoint.listAdministrador" : {
-      "path" : "administrador",
+    "opinionlibroendpoint.updateOpinionLibro" : {
+      "path" : "opinionlibro",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.OpinionLibroEndpoint.updateOpinionLibro",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "opinionlibroendpoint.removeOpinionLibro" : {
+      "path" : "opinionlibro/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.OpinionLibroEndpoint.removeOpinionLibro",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "opinionlibroendpoint.listOpinionLibro" : {
+      "path" : "opinionlibro",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.listAdministrador",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.OpinionLibroEndpoint.listOpinionLibro",
       "request" : {
         "parameters" : {
           "cursor" : {
@@ -68,51 +105,14 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "administradorendpoint.insertAdministrador" : {
-      "path" : "administrador",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.insertAdministrador",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "administradorendpoint.removeAdministrador" : {
-      "path" : "administrador/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.removeAdministrador",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "empty"
-      }
-    },
-    "administradorendpoint.getAdministrador" : {
-      "path" : "administrador/{id}",
+    "opinionlibroendpoint.getOpinionLibro" : {
+      "path" : "opinionlibro/{id}",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.getAdministrador",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.OpinionLibroEndpoint.getOpinionLibro",
       "request" : {
         "parameters" : {
           "id" : {
@@ -129,37 +129,22 @@
   },
   "descriptor" : {
     "schemas" : {
-      "Administrador" : {
-        "id" : "Administrador",
+      "OpinionLibro" : {
+        "id" : "OpinionLibro",
         "type" : "object",
         "properties" : {
-          "idAdministrador" : {
+          "idLibro" : {
             "type" : "string",
             "format" : "int64"
           },
-          "nombre" : {
-            "type" : "string"
-          },
-          "correo" : {
-            "type" : "string"
-          },
-          "telefono" : {
-            "type" : "string"
-          },
-          "cargo" : {
-            "type" : "string"
-          },
-          "dependencia" : {
-            "type" : "string"
-          },
-          "password" : {
-            "type" : "string"
-          },
-          "idInstitucion" : {
+          "idUsuario" : {
             "type" : "string",
             "format" : "int64"
           },
-          "superadministrador" : {
+          "opinion" : {
+            "type" : "string"
+          },
+          "calificacion" : {
             "type" : "string",
             "format" : "int64"
           },
@@ -171,14 +156,14 @@
           }
         }
       },
-      "CollectionResponse_Administrador" : {
-        "id" : "CollectionResponse_Administrador",
+      "CollectionResponse_OpinionLibro" : {
+        "id" : "CollectionResponse_OpinionLibro",
         "type" : "object",
         "properties" : {
           "items" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Administrador"
+              "$ref" : "OpinionLibro"
             }
           },
           "nextPageToken" : {
@@ -188,32 +173,32 @@
       }
     },
     "methods" : {
-      "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.updateAdministrador" : {
+      "com.appspot.wsventanaeducativa.endpoints.OpinionLibroEndpoint.insertOpinionLibro" : {
         "request" : {
-          "$ref" : "Administrador"
+          "$ref" : "OpinionLibro"
         },
         "response" : {
-          "$ref" : "Administrador"
+          "$ref" : "OpinionLibro"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.listAdministrador" : {
-        "response" : {
-          "$ref" : "CollectionResponse_Administrador"
-        }
-      },
-      "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.insertAdministrador" : {
+      "com.appspot.wsventanaeducativa.endpoints.OpinionLibroEndpoint.updateOpinionLibro" : {
         "request" : {
-          "$ref" : "Administrador"
+          "$ref" : "OpinionLibro"
         },
         "response" : {
-          "$ref" : "Administrador"
+          "$ref" : "OpinionLibro"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.removeAdministrador" : {
+      "com.appspot.wsventanaeducativa.endpoints.OpinionLibroEndpoint.removeOpinionLibro" : {
       },
-      "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.getAdministrador" : {
+      "com.appspot.wsventanaeducativa.endpoints.OpinionLibroEndpoint.listOpinionLibro" : {
         "response" : {
-          "$ref" : "Administrador"
+          "$ref" : "CollectionResponse_OpinionLibro"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.OpinionLibroEndpoint.getOpinionLibro" : {
+        "response" : {
+          "$ref" : "OpinionLibro"
         }
       }
     }

@@ -2,7 +2,7 @@
   "extends" : "thirdParty.api",
   "abstract" : false,
   "root" : "https://ws-ventana-educativa.appspot.com/_ah/api",
-  "name" : "categoriaendpoint",
+  "name" : "escuelaendpoint",
   "version" : "v1",
   "defaultVersion" : false,
   "adapter" : {
@@ -27,18 +27,18 @@
   "ownerName" : "appspot.com",
   "packagePath" : "wsventanaeducativa.dao.dto",
   "methods" : {
-    "categoriaendpoint.getCategoria" : {
-      "path" : "categoria/{id}",
+    "escuelaendpoint.getEscuela" : {
+      "path" : "escuela/{id}",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.getCategoria",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.EscuelaEndpoint.getEscuela",
       "request" : {
         "parameters" : {
           "id" : {
-            "type" : "string",
+            "type" : "int64",
             "required" : true
           }
         },
@@ -48,14 +48,46 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "categoriaendpoint.listCategoria" : {
-      "path" : "categoria",
+    "escuelaendpoint.insertEscuela" : {
+      "path" : "escuela",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.EscuelaEndpoint.insertEscuela",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "escuelaendpoint.updateEscuela" : {
+      "path" : "escuela",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.EscuelaEndpoint.updateEscuela",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "escuelaendpoint.listEscuela" : {
+      "path" : "escuela",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.listCategoria",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.EscuelaEndpoint.listEscuela",
       "request" : {
         "parameters" : {
           "cursor" : {
@@ -73,50 +105,18 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "categoriaendpoint.insertCategoria" : {
-      "path" : "categoria",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.insertCategoria",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "categoriaendpoint.updateCategoria" : {
-      "path" : "categoria",
-      "httpMethod" : "PUT",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.updateCategoria",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "categoriaendpoint.removeCategoria" : {
-      "path" : "categoria/{id}",
+    "escuelaendpoint.removeEscuela" : {
+      "path" : "escuela/{id}",
       "httpMethod" : "DELETE",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.removeCategoria",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.EscuelaEndpoint.removeEscuela",
       "request" : {
         "parameters" : {
           "id" : {
-            "type" : "string",
+            "type" : "int64",
             "required" : true
           }
         },
@@ -129,17 +129,43 @@
   },
   "descriptor" : {
     "schemas" : {
-      "Categoria" : {
-        "id" : "Categoria",
+      "Escuela" : {
+        "id" : "Escuela",
         "type" : "object",
         "properties" : {
-          "categoria" : {
+          "idEscuela" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "nombre" : {
             "type" : "string"
           },
-          "descripcion" : {
+          "direccion" : {
             "type" : "string"
           },
-          "categoriaPadre" : {
+          "colonia" : {
+            "type" : "string"
+          },
+          "municipio" : {
+            "type" : "string"
+          },
+          "estado" : {
+            "type" : "string"
+          },
+          "codigoPostal" : {
+            "type" : "string"
+          },
+          "clave" : {
+            "type" : "string"
+          },
+          "privada" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "nivel" : {
+            "type" : "string"
+          },
+          "institucion" : {
             "type" : "string"
           },
           "fechaCreacion" : {
@@ -150,14 +176,14 @@
           }
         }
       },
-      "CollectionResponse_Categoria" : {
-        "id" : "CollectionResponse_Categoria",
+      "CollectionResponse_Escuela" : {
+        "id" : "CollectionResponse_Escuela",
         "type" : "object",
         "properties" : {
           "items" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Categoria"
+              "$ref" : "Escuela"
             }
           },
           "nextPageToken" : {
@@ -167,33 +193,33 @@
       }
     },
     "methods" : {
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.getCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.EscuelaEndpoint.getEscuela" : {
         "response" : {
-          "$ref" : "Categoria"
+          "$ref" : "Escuela"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.listCategoria" : {
-        "response" : {
-          "$ref" : "CollectionResponse_Categoria"
-        }
-      },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.insertCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.EscuelaEndpoint.insertEscuela" : {
         "request" : {
-          "$ref" : "Categoria"
+          "$ref" : "Escuela"
         },
         "response" : {
-          "$ref" : "Categoria"
+          "$ref" : "Escuela"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.updateCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.EscuelaEndpoint.updateEscuela" : {
         "request" : {
-          "$ref" : "Categoria"
+          "$ref" : "Escuela"
         },
         "response" : {
-          "$ref" : "Categoria"
+          "$ref" : "Escuela"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.removeCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.EscuelaEndpoint.listEscuela" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Escuela"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.EscuelaEndpoint.removeEscuela" : {
       }
     }
   }

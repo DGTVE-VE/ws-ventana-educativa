@@ -1,6 +1,11 @@
 package com.appspot.wsventanaeducativa.dao.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class LogEventosAdministrador implements java.io.Serializable{
+	@Id
 	private Long idLogEventosAdministrador;
 	private Long idAdministrador;
 	private String log;

@@ -1,7 +1,14 @@
 package com.appspot.wsventanaeducativa.dao.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class CategoriasVod implements java.io.Serializable{
+	
+	@Id
 	private String categoriasCategoria;
+	@Id
 	private Long vodIdVod;
 	private String fechaCreacion;
 	private String fechaModificacion;

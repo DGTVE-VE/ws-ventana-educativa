@@ -34,7 +34,7 @@
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.getLibro",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LibroEndpoint.getLibro",
       "request" : {
         "parameters" : {
           "id" : {
@@ -48,20 +48,25 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "libroendpoint.updateLibro" : {
-      "path" : "libro",
-      "httpMethod" : "PUT",
+    "libroendpoint.removeLibro" : {
+      "path" : "libro/{id}",
+      "httpMethod" : "DELETE",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.updateLibro",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LibroEndpoint.removeLibro",
       "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
       },
       "response" : {
-        "body" : "autoTemplate(backendResponse)"
+        "body" : "empty"
       }
     },
     "libroendpoint.listLibro" : {
@@ -71,7 +76,7 @@
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.listLibro",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LibroEndpoint.listLibro",
       "request" : {
         "parameters" : {
           "cursor" : {
@@ -89,25 +94,20 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "libroendpoint.removeLibro" : {
-      "path" : "libro/{id}",
-      "httpMethod" : "DELETE",
+    "libroendpoint.updateLibro" : {
+      "path" : "libro",
+      "httpMethod" : "PUT",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.removeLibro",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LibroEndpoint.updateLibro",
       "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
       },
       "response" : {
-        "body" : "empty"
+        "body" : "autoTemplate(backendResponse)"
       }
     },
     "libroendpoint.insertLibro" : {
@@ -117,7 +117,7 @@
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.insertLibro",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LibroEndpoint.insertLibro",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
@@ -254,12 +254,19 @@
       }
     },
     "methods" : {
-      "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.getLibro" : {
+      "com.appspot.wsventanaeducativa.endpoints.LibroEndpoint.getLibro" : {
         "response" : {
           "$ref" : "Libro"
         }
       },
-      "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.updateLibro" : {
+      "com.appspot.wsventanaeducativa.endpoints.LibroEndpoint.removeLibro" : {
+      },
+      "com.appspot.wsventanaeducativa.endpoints.LibroEndpoint.listLibro" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Libro"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.LibroEndpoint.updateLibro" : {
         "request" : {
           "$ref" : "Libro"
         },
@@ -267,14 +274,7 @@
           "$ref" : "Libro"
         }
       },
-      "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.listLibro" : {
-        "response" : {
-          "$ref" : "CollectionResponse_Libro"
-        }
-      },
-      "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.removeLibro" : {
-      },
-      "com.appspot.wsventanaeducativa.dao.dto.LibroEndpoint.insertLibro" : {
+      "com.appspot.wsventanaeducativa.endpoints.LibroEndpoint.insertLibro" : {
         "request" : {
           "$ref" : "Libro"
         },

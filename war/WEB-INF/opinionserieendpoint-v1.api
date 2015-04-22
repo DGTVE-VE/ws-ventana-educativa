@@ -2,7 +2,7 @@
   "extends" : "thirdParty.api",
   "abstract" : false,
   "root" : "https://ws-ventana-educativa.appspot.com/_ah/api",
-  "name" : "categoriaendpoint",
+  "name" : "opinionserieendpoint",
   "version" : "v1",
   "defaultVersion" : false,
   "adapter" : {
@@ -27,35 +27,67 @@
   "ownerName" : "appspot.com",
   "packagePath" : "wsventanaeducativa.dao.dto",
   "methods" : {
-    "categoriaendpoint.getCategoria" : {
-      "path" : "categoria/{id}",
-      "httpMethod" : "GET",
+    "opinionserieendpoint.removeOpinionSerie" : {
+      "path" : "opinionserie/{id}",
+      "httpMethod" : "DELETE",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.getCategoria",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.OpinionSerieEndpoint.removeOpinionSerie",
       "request" : {
         "parameters" : {
           "id" : {
-            "type" : "string",
+            "type" : "int64",
             "required" : true
           }
         },
         "body" : "empty"
       },
       "response" : {
+        "body" : "empty"
+      }
+    },
+    "opinionserieendpoint.updateOpinionSerie" : {
+      "path" : "opinionserie",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.OpinionSerieEndpoint.updateOpinionSerie",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "categoriaendpoint.listCategoria" : {
-      "path" : "categoria",
+    "opinionserieendpoint.insertOpinionSerie" : {
+      "path" : "opinionserie",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.OpinionSerieEndpoint.insertOpinionSerie",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "opinionserieendpoint.listOpinionSerie" : {
+      "path" : "opinionserie",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.listCategoria",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.OpinionSerieEndpoint.listOpinionSerie",
       "request" : {
         "parameters" : {
           "cursor" : {
@@ -73,74 +105,48 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "categoriaendpoint.insertCategoria" : {
-      "path" : "categoria",
-      "httpMethod" : "POST",
+    "opinionserieendpoint.getOpinionSerie" : {
+      "path" : "opinionserie/{id}",
+      "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.insertCategoria",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "categoriaendpoint.updateCategoria" : {
-      "path" : "categoria",
-      "httpMethod" : "PUT",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.updateCategoria",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "categoriaendpoint.removeCategoria" : {
-      "path" : "categoria/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.removeCategoria",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.OpinionSerieEndpoint.getOpinionSerie",
       "request" : {
         "parameters" : {
           "id" : {
-            "type" : "string",
+            "type" : "int64",
             "required" : true
           }
         },
         "body" : "empty"
       },
       "response" : {
-        "body" : "empty"
+        "body" : "autoTemplate(backendResponse)"
       }
     }
   },
   "descriptor" : {
     "schemas" : {
-      "Categoria" : {
-        "id" : "Categoria",
+      "OpinionSerie" : {
+        "id" : "OpinionSerie",
         "type" : "object",
         "properties" : {
-          "categoria" : {
+          "idContenido" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "idUsuario" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "opinion" : {
             "type" : "string"
           },
-          "descripcion" : {
-            "type" : "string"
-          },
-          "categoriaPadre" : {
-            "type" : "string"
+          "calificacion" : {
+            "type" : "string",
+            "format" : "int64"
           },
           "fechaCreacion" : {
             "type" : "string"
@@ -150,14 +156,14 @@
           }
         }
       },
-      "CollectionResponse_Categoria" : {
-        "id" : "CollectionResponse_Categoria",
+      "CollectionResponse_OpinionSerie" : {
+        "id" : "CollectionResponse_OpinionSerie",
         "type" : "object",
         "properties" : {
           "items" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Categoria"
+              "$ref" : "OpinionSerie"
             }
           },
           "nextPageToken" : {
@@ -167,33 +173,33 @@
       }
     },
     "methods" : {
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.getCategoria" : {
-        "response" : {
-          "$ref" : "Categoria"
-        }
+      "com.appspot.wsventanaeducativa.endpoints.OpinionSerieEndpoint.removeOpinionSerie" : {
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.listCategoria" : {
-        "response" : {
-          "$ref" : "CollectionResponse_Categoria"
-        }
-      },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.insertCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.OpinionSerieEndpoint.updateOpinionSerie" : {
         "request" : {
-          "$ref" : "Categoria"
+          "$ref" : "OpinionSerie"
         },
         "response" : {
-          "$ref" : "Categoria"
+          "$ref" : "OpinionSerie"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.updateCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.OpinionSerieEndpoint.insertOpinionSerie" : {
         "request" : {
-          "$ref" : "Categoria"
+          "$ref" : "OpinionSerie"
         },
         "response" : {
-          "$ref" : "Categoria"
+          "$ref" : "OpinionSerie"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.removeCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.OpinionSerieEndpoint.listOpinionSerie" : {
+        "response" : {
+          "$ref" : "CollectionResponse_OpinionSerie"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.OpinionSerieEndpoint.getOpinionSerie" : {
+        "response" : {
+          "$ref" : "OpinionSerie"
+        }
       }
     }
   }

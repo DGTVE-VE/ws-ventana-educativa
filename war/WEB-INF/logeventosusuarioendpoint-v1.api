@@ -2,7 +2,7 @@
   "extends" : "thirdParty.api",
   "abstract" : false,
   "root" : "https://ws-ventana-educativa.appspot.com/_ah/api",
-  "name" : "administradorendpoint",
+  "name" : "logeventosusuarioendpoint",
   "version" : "v1",
   "defaultVersion" : false,
   "adapter" : {
@@ -27,14 +27,14 @@
   "ownerName" : "appspot.com",
   "packagePath" : "wsventanaeducativa.dao.dto",
   "methods" : {
-    "administradorendpoint.updateAdministrador" : {
-      "path" : "administrador",
-      "httpMethod" : "PUT",
+    "logeventosusuarioendpoint.insertLogEventosUsuario" : {
+      "path" : "logeventosusuario",
+      "httpMethod" : "POST",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.updateAdministrador",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LogEventosUsuarioEndpoint.insertLogEventosUsuario",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
@@ -43,14 +43,56 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "administradorendpoint.listAdministrador" : {
-      "path" : "administrador",
+    "logeventosusuarioendpoint.getLogEventosUsuario" : {
+      "path" : "logeventosusuario/{id}",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.listAdministrador",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LogEventosUsuarioEndpoint.getLogEventosUsuario",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "logeventosusuarioendpoint.removeLogEventosUsuario" : {
+      "path" : "logeventosusuario/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LogEventosUsuarioEndpoint.removeLogEventosUsuario",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "logeventosusuarioendpoint.listLogEventosUsuario" : {
+      "path" : "logeventosusuario",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LogEventosUsuarioEndpoint.listLogEventosUsuario",
       "request" : {
         "parameters" : {
           "cursor" : {
@@ -68,59 +110,17 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "administradorendpoint.insertAdministrador" : {
-      "path" : "administrador",
-      "httpMethod" : "POST",
+    "logeventosusuarioendpoint.updateLogEventosUsuario" : {
+      "path" : "logeventosusuario",
+      "httpMethod" : "PUT",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.insertAdministrador",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LogEventosUsuarioEndpoint.updateLogEventosUsuario",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "administradorendpoint.removeAdministrador" : {
-      "path" : "administrador/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.removeAdministrador",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "empty"
-      }
-    },
-    "administradorendpoint.getAdministrador" : {
-      "path" : "administrador/{id}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.getAdministrador",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -129,39 +129,26 @@
   },
   "descriptor" : {
     "schemas" : {
-      "Administrador" : {
-        "id" : "Administrador",
+      "LogEventosUsuario" : {
+        "id" : "LogEventosUsuario",
         "type" : "object",
         "properties" : {
-          "idAdministrador" : {
+          "idLogEventosUsuario" : {
             "type" : "string",
             "format" : "int64"
           },
-          "nombre" : {
-            "type" : "string"
-          },
-          "correo" : {
-            "type" : "string"
-          },
-          "telefono" : {
-            "type" : "string"
-          },
-          "cargo" : {
-            "type" : "string"
-          },
-          "dependencia" : {
-            "type" : "string"
-          },
-          "password" : {
-            "type" : "string"
-          },
-          "idInstitucion" : {
+          "idUsuario" : {
             "type" : "string",
             "format" : "int64"
           },
-          "superadministrador" : {
-            "type" : "string",
-            "format" : "int64"
+          "log" : {
+            "type" : "string"
+          },
+          "tipoEvento" : {
+            "type" : "string"
+          },
+          "direccionIp" : {
+            "type" : "string"
           },
           "fechaCreacion" : {
             "type" : "string"
@@ -171,14 +158,14 @@
           }
         }
       },
-      "CollectionResponse_Administrador" : {
-        "id" : "CollectionResponse_Administrador",
+      "CollectionResponse_LogEventosUsuario" : {
+        "id" : "CollectionResponse_LogEventosUsuario",
         "type" : "object",
         "properties" : {
           "items" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Administrador"
+              "$ref" : "LogEventosUsuario"
             }
           },
           "nextPageToken" : {
@@ -188,32 +175,32 @@
       }
     },
     "methods" : {
-      "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.updateAdministrador" : {
+      "com.appspot.wsventanaeducativa.endpoints.LogEventosUsuarioEndpoint.insertLogEventosUsuario" : {
         "request" : {
-          "$ref" : "Administrador"
+          "$ref" : "LogEventosUsuario"
         },
         "response" : {
-          "$ref" : "Administrador"
+          "$ref" : "LogEventosUsuario"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.listAdministrador" : {
+      "com.appspot.wsventanaeducativa.endpoints.LogEventosUsuarioEndpoint.getLogEventosUsuario" : {
         "response" : {
-          "$ref" : "CollectionResponse_Administrador"
+          "$ref" : "LogEventosUsuario"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.insertAdministrador" : {
+      "com.appspot.wsventanaeducativa.endpoints.LogEventosUsuarioEndpoint.removeLogEventosUsuario" : {
+      },
+      "com.appspot.wsventanaeducativa.endpoints.LogEventosUsuarioEndpoint.listLogEventosUsuario" : {
+        "response" : {
+          "$ref" : "CollectionResponse_LogEventosUsuario"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.LogEventosUsuarioEndpoint.updateLogEventosUsuario" : {
         "request" : {
-          "$ref" : "Administrador"
+          "$ref" : "LogEventosUsuario"
         },
         "response" : {
-          "$ref" : "Administrador"
-        }
-      },
-      "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.removeAdministrador" : {
-      },
-      "com.appspot.wsventanaeducativa.endpoints.AdministradorEndpoint.getAdministrador" : {
-        "response" : {
-          "$ref" : "Administrador"
+          "$ref" : "LogEventosUsuario"
         }
       }
     }

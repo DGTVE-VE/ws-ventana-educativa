@@ -1,6 +1,11 @@
 package com.appspot.wsventanaeducativa.dao.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+    @Entity
 public class TipoPantalla implements java.io.Serializable{
+	@Id
 	private String tipoPantalla;
 	private String descripcion;
 	private String fechaCreacion;

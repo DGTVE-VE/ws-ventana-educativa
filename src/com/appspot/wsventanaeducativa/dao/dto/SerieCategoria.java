@@ -1,6 +1,10 @@
 package com.appspot.wsventanaeducativa.dao.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+    @Entity
 public class SerieCategoria implements java.io.Serializable{
+	@Id
 	private Long idSerie;
 	private String categoria;
 	private String fechaCreacion;

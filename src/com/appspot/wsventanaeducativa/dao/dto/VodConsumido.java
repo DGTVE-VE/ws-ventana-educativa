@@ -1,6 +1,11 @@
 package com.appspot.wsventanaeducativa.dao.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class VodConsumido implements java.io.Serializable{
+	@Id
 	private Long idVodConsumido;
 	private Long idVod;
 	private Long idUsuario;

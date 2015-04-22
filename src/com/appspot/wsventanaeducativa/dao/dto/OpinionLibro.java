@@ -1,6 +1,10 @@
-package com.appspot.wsventanaeducativa.dao.dto;
+    package com.appspot.wsventanaeducativa.dao.dto;
 
-public class OpinionLibro implements java.io.Serializable{
+import javax.persistence.Entity;
+import javax.persistence.Id;
+    @Entity
+    public class OpinionLibro implements java.io.Serializable{
+	@Id
 	private Long idLibro;
 	private Long idUsuario;
 	private String opinion;

@@ -1,6 +1,11 @@
 package com.appspot.wsventanaeducativa.dao.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+    @Entity
 public class Pantalla implements java.io.Serializable{
+	@Id
 	private Long idPantalla;
 	private Long idPantallaPadre;
 	private String nombre;

@@ -2,7 +2,7 @@
   "extends" : "thirdParty.api",
   "abstract" : false,
   "root" : "https://ws-ventana-educativa.appspot.com/_ah/api",
-  "name" : "categoriaendpoint",
+  "name" : "logerroreendpoint",
   "version" : "v1",
   "defaultVersion" : false,
   "adapter" : {
@@ -27,18 +27,18 @@
   "ownerName" : "appspot.com",
   "packagePath" : "wsventanaeducativa.dao.dto",
   "methods" : {
-    "categoriaendpoint.getCategoria" : {
-      "path" : "categoria/{id}",
+    "logerroreendpoint.getLogErrore" : {
+      "path" : "logerrore/{id}",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.getCategoria",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LogErroreEndpoint.getLogErrore",
       "request" : {
         "parameters" : {
           "id" : {
-            "type" : "string",
+            "type" : "int64",
             "required" : true
           }
         },
@@ -48,14 +48,67 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "categoriaendpoint.listCategoria" : {
-      "path" : "categoria",
+    "logerroreendpoint.insertLogErrore" : {
+      "path" : "logerrore",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LogErroreEndpoint.insertLogErrore",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "logerroreendpoint.updateLogErrore" : {
+      "path" : "logerrore",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LogErroreEndpoint.updateLogErrore",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "logerroreendpoint.removeLogErrore" : {
+      "path" : "logerrore/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LogErroreEndpoint.removeLogErrore",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "logerroreendpoint.listLogErrore" : {
+      "path" : "logerrore",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.listCategoria",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.LogErroreEndpoint.listLogErrore",
       "request" : {
         "parameters" : {
           "cursor" : {
@@ -72,74 +125,22 @@
       "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
-    },
-    "categoriaendpoint.insertCategoria" : {
-      "path" : "categoria",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.insertCategoria",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "categoriaendpoint.updateCategoria" : {
-      "path" : "categoria",
-      "httpMethod" : "PUT",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.updateCategoria",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "categoriaendpoint.removeCategoria" : {
-      "path" : "categoria/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.removeCategoria",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "string",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "empty"
-      }
     }
   },
   "descriptor" : {
     "schemas" : {
-      "Categoria" : {
-        "id" : "Categoria",
+      "LogErrore" : {
+        "id" : "LogErrore",
         "type" : "object",
         "properties" : {
-          "categoria" : {
+          "idLogError" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "log" : {
             "type" : "string"
           },
-          "descripcion" : {
-            "type" : "string"
-          },
-          "categoriaPadre" : {
+          "tipoError" : {
             "type" : "string"
           },
           "fechaCreacion" : {
@@ -150,14 +151,14 @@
           }
         }
       },
-      "CollectionResponse_Categoria" : {
-        "id" : "CollectionResponse_Categoria",
+      "CollectionResponse_LogErrore" : {
+        "id" : "CollectionResponse_LogErrore",
         "type" : "object",
         "properties" : {
           "items" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Categoria"
+              "$ref" : "LogErrore"
             }
           },
           "nextPageToken" : {
@@ -167,33 +168,33 @@
       }
     },
     "methods" : {
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.getCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.LogErroreEndpoint.getLogErrore" : {
         "response" : {
-          "$ref" : "Categoria"
+          "$ref" : "LogErrore"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.listCategoria" : {
-        "response" : {
-          "$ref" : "CollectionResponse_Categoria"
-        }
-      },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.insertCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.LogErroreEndpoint.insertLogErrore" : {
         "request" : {
-          "$ref" : "Categoria"
+          "$ref" : "LogErrore"
         },
         "response" : {
-          "$ref" : "Categoria"
+          "$ref" : "LogErrore"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.updateCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.LogErroreEndpoint.updateLogErrore" : {
         "request" : {
-          "$ref" : "Categoria"
+          "$ref" : "LogErrore"
         },
         "response" : {
-          "$ref" : "Categoria"
+          "$ref" : "LogErrore"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.removeCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.LogErroreEndpoint.removeLogErrore" : {
+      },
+      "com.appspot.wsventanaeducativa.endpoints.LogErroreEndpoint.listLogErrore" : {
+        "response" : {
+          "$ref" : "CollectionResponse_LogErrore"
+        }
       }
     }
   }

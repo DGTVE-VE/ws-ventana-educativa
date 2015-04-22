@@ -1,6 +1,11 @@
 package com.appspot.wsventanaeducativa.dao.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class LogErrore implements java.io.Serializable{
+	@Id
 	private Long idLogError;
 	private String log;
 	private String tipoError;

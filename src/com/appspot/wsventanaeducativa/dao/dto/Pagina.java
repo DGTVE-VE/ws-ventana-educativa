@@ -1,6 +1,10 @@
 package com.appspot.wsventanaeducativa.dao.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+    @Entity
 public class Pagina implements java.io.Serializable{
+	@Id
 	private Long idPag;
 	private Long idLibro;
 	private String url;

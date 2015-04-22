@@ -2,7 +2,7 @@
   "extends" : "thirdParty.api",
   "abstract" : false,
   "root" : "https://ws-ventana-educativa.appspot.com/_ah/api",
-  "name" : "categoriaendpoint",
+  "name" : "categoriasvodendpoint",
   "version" : "v1",
   "defaultVersion" : false,
   "adapter" : {
@@ -27,14 +27,14 @@
   "ownerName" : "appspot.com",
   "packagePath" : "wsventanaeducativa.dao.dto",
   "methods" : {
-    "categoriaendpoint.getCategoria" : {
-      "path" : "categoria/{id}",
-      "httpMethod" : "GET",
+    "categoriasvodendpoint.removeCategoriasVod" : {
+      "path" : "categoriasvod/{id}",
+      "httpMethod" : "DELETE",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.getCategoria",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriasVodEndpoint.removeCategoriasVod",
       "request" : {
         "parameters" : {
           "id" : {
@@ -45,17 +45,49 @@
         "body" : "empty"
       },
       "response" : {
+        "body" : "empty"
+      }
+    },
+    "categoriasvodendpoint.updateCategoriasVod" : {
+      "path" : "categoriasvod",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriasVodEndpoint.updateCategoriasVod",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "categoriaendpoint.listCategoria" : {
-      "path" : "categoria",
+    "categoriasvodendpoint.insertCategoriasVod" : {
+      "path" : "categoriasvod",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriasVodEndpoint.insertCategoriasVod",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "categoriasvodendpoint.listCategoriasVod" : {
+      "path" : "categoriasvod",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.listCategoria",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriasVodEndpoint.listCategoriasVod",
       "request" : {
         "parameters" : {
           "cursor" : {
@@ -73,46 +105,14 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "categoriaendpoint.insertCategoria" : {
-      "path" : "categoria",
-      "httpMethod" : "POST",
+    "categoriasvodendpoint.getCategoriasVod" : {
+      "path" : "categoriasvod/{id}",
+      "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.insertCategoria",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "categoriaendpoint.updateCategoria" : {
-      "path" : "categoria",
-      "httpMethod" : "PUT",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.updateCategoria",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "categoriaendpoint.removeCategoria" : {
-      "path" : "categoria/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.removeCategoria",
+      "rosyMethod" : "com.appspot.wsventanaeducativa.endpoints.CategoriasVodEndpoint.getCategoriasVod",
       "request" : {
         "parameters" : {
           "id" : {
@@ -123,24 +123,22 @@
         "body" : "empty"
       },
       "response" : {
-        "body" : "empty"
+        "body" : "autoTemplate(backendResponse)"
       }
     }
   },
   "descriptor" : {
     "schemas" : {
-      "Categoria" : {
-        "id" : "Categoria",
+      "CategoriasVod" : {
+        "id" : "CategoriasVod",
         "type" : "object",
         "properties" : {
-          "categoria" : {
+          "categoriasCategoria" : {
             "type" : "string"
           },
-          "descripcion" : {
-            "type" : "string"
-          },
-          "categoriaPadre" : {
-            "type" : "string"
+          "vodIdVod" : {
+            "type" : "string",
+            "format" : "int64"
           },
           "fechaCreacion" : {
             "type" : "string"
@@ -150,14 +148,14 @@
           }
         }
       },
-      "CollectionResponse_Categoria" : {
-        "id" : "CollectionResponse_Categoria",
+      "CollectionResponse_CategoriasVod" : {
+        "id" : "CollectionResponse_CategoriasVod",
         "type" : "object",
         "properties" : {
           "items" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Categoria"
+              "$ref" : "CategoriasVod"
             }
           },
           "nextPageToken" : {
@@ -167,33 +165,33 @@
       }
     },
     "methods" : {
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.getCategoria" : {
-        "response" : {
-          "$ref" : "Categoria"
-        }
+      "com.appspot.wsventanaeducativa.endpoints.CategoriasVodEndpoint.removeCategoriasVod" : {
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.listCategoria" : {
-        "response" : {
-          "$ref" : "CollectionResponse_Categoria"
-        }
-      },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.insertCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.CategoriasVodEndpoint.updateCategoriasVod" : {
         "request" : {
-          "$ref" : "Categoria"
+          "$ref" : "CategoriasVod"
         },
         "response" : {
-          "$ref" : "Categoria"
+          "$ref" : "CategoriasVod"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.updateCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.CategoriasVodEndpoint.insertCategoriasVod" : {
         "request" : {
-          "$ref" : "Categoria"
+          "$ref" : "CategoriasVod"
         },
         "response" : {
-          "$ref" : "Categoria"
+          "$ref" : "CategoriasVod"
         }
       },
-      "com.appspot.wsventanaeducativa.endpoints.CategoriaEndpoint.removeCategoria" : {
+      "com.appspot.wsventanaeducativa.endpoints.CategoriasVodEndpoint.listCategoriasVod" : {
+        "response" : {
+          "$ref" : "CollectionResponse_CategoriasVod"
+        }
+      },
+      "com.appspot.wsventanaeducativa.endpoints.CategoriasVodEndpoint.getCategoriasVod" : {
+        "response" : {
+          "$ref" : "CategoriasVod"
+        }
       }
     }
   }
